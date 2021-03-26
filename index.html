@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel=" stylesheet" href="./style/bootstrap.min.css">
+    <link rel=" stylesheet" href="./style/style.css">
+    <link rel=" stylesheet" href="./style/stripestyle.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./style/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,300&display=swap"
+        rel="stylesheet">
+    <!--Gmap-->
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Venezia pools office
+            const uluru = { lat: 26.12726719730325, lng: -80.38383776025633 };
+            // The map, Venezia pools office
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: uluru,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+    </script>
+
+
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV2UqIQFOTKzCigu6sDhiX2SPhH3bg3WU&callback=initMap">
+        </script>
+    <script src="https://kit.fontawesome.com/7991c24461.js" crossorigin="anonymous"></script>
+    <title>PoolBeta</title>
+</head>
+
+<body class="whiteBg">
+    <!-- NAVBAR-->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="./img/Logo brand.jpeg" alt="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class=" navbar-nav justify-content-center me-auto mb-2 mb-lg-0">
+                    <a class="nav-link " aria-current="page" href="./index.html">
+                        <li class="">
+                            Home<span></span><span></span><span></span><span></span>
+                        </li>
+                    </a>
+                    <a class="nav-link" href="./AboutUs.html">
+                        <li>
+                            About us<span></span><span></span><span></span><span></span>
+                        </li>
+                    </a>
+                    <a class="nav-link" href="./Gallery.html">
+                        <li>
+                            Gallery<span></span><span></span><span></span><span></span>
+                        </li>
+                    </a>
+
+                    </li>
+                    <a class="nav-link" href="./Maintenance.html">
+                        <li>Maintenance<span></span><span></span><span></span><span></span>
+                        </li>
+                        <a class="nav-link" href="./Rehabilitation.html">
+                            <li>
+                                Rehabilitation<span></span><span></span><span></span><span></span>
+                            </li>
+                        </a>
+                        <a class="nav-link" href="./ContactUs.html">
+                            <li>
+                                Contact Us <span></span><span></span><span></span><span></span>
+                            </li>
+                        </a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carrousel-->
+    <div id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active firtsItem">
+                <div class="container">
+                    <div class="row justify-content-center alig">
+                        <div class="col-lg-12 Headliners">
+                            <h1>Welcome</h1>
+                            <p>We are the bests in maintenance services for swimming pools, and water pumping systems,
+                                too.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item secondItem">
+                <div class="container">
+                    <div class="row justify-content-center alig">
+                        <div class="col-lg-12 Headliners">
+                            <h1>Safety</h1>
+                            <p>Your security is our major priority, trust in us and swim in tranquility </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item thirdItem">
+                <div class="container">
+                    <div class="row justify-content-center alig">
+                        <div class="col-lg-12 Headliners">
+                            <h1>Guaranteed</h1>
+                            <p>When it comes to pool maintenance, we are your best option, we secure you with
+                                first-class services.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+
+    <!-- Intro-->
+    <section class="Intro ">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 py-1 my-5">
+                    <h2 class="Title pt-1">Venezia Pools</h2>
+                    <p class="mr-2 pr-5 mt-4">We are specialist in permanent and corrective services,
+                        including everything that has to do with maintenance and rehabilitation of swimming pools
+                    </p>
+                    <h4>We work to:</h4>
+                    <ul>
+                        <li>Houses and private residences</li>
+                        <li>Resorts</li>
+                        <li>Hotels</li>
+                        <li>Sports Institutions </li>
+                    </ul>
+                    <h3 class="text-center">Follow us!</h3>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 social">
+                                <a href="" class="facebook socialLinks"><i class="socialIcons fab fa-facebook"></i></a>
+                            </div>
+                            <div class="col-lg-4 social">
+                                <a href="" class="instagram socialLinks"><i
+                                        class="socialIcons fab fa-instagram"></i></a>
+                            </div>
+                            <div class="col-lg-4 social">
+                                <a href="" class="whatsapp2 socialLinks"><i class="socialIcons fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us-->
+    <section class=>
+        <h3 class="text-center">
+            <h2>Why you should call us?</h2>
+            <div class="container-fluid about mt-5">
+                <div class="row border">
+                    <div class="col-lg-6 aboutText ">
+                        <h2>Personalized:</h2>
+                        <p class="m-1">Our maintenance services can be modified and customized according to the
+                            needs of each
+                            client and their pool. A first visit from our technician will advise you
+                            on choosing the
+                            most appropriate service.</p>
+                    </div>
+                    <div class="col-lg-6 px-0 ">
+                        <img src="./img/Planos.jpg" alt="">
+                    </div>
+                </div>
+                <div class="row border">
+                    <div class="col-lg-6 px-0 ">
+                        <img src="./img/Bills.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6 aboutText ">
+                        <h2>Flexible:</h2>
+                        <p class="m-1">The contract period for the service is totally flexible, always
+                            benefiting an annual
+                            service from it.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row border">
+                    <div class="col-lg-6 aboutText">
+                        <h2>Fair Price:</h2>
+                        <p class="m-1">Our services are according to the client if they already have their
+                            products and
+                            materials, only the service provided will be charged.</p>
+                    </div>
+                    <div class="col-lg-6 px-0 ">
+                        <img src="./img/Relax.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+    <!--Services-->
+    <section class="services">
+        <div class="container mt-3">
+            <div class="row justify-content-around mt-3 py-5">
+                <div class="col-lg-3 col-sm-12 p-3 m-1 text-center servicesBox">
+                    <div class="icon-sevices">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <div class="body-services">
+                        </div>
+                        <h3 class="mt-3">Studies and calculations</h3>
+                        <p class="pt-2">We carry out the work of studying the needs of your pools, to offer you the
+                            best
+                            solution.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-12 p-3 m-1 text-center servicesBox">
+                    <div class="icon-sevices">
+                        <i class="fas fa-wrench"></i>
+                        <div class="body-services">
+                        </div>
+                        <h3 class="mt-3">Maintenance</h3>
+                        <p class="pt-2"> Cleaning, maintenance of Pools and water pump systems.
+                            We are specialists in predictive, corrective and scheduled maintenance.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-12 p-3 m-1 text-center servicesBox">
+                    <div class="icon-sevices">
+                        <i class="fas fa-shower"></i><i class="fas fa-pump-soap"></i>
+                        <div class="body-services">
+                        </div>
+                        <h3 class="mt-3">Acid wash</h3>
+                        <p class="pt-2">Also called draining and cleaning, it consists of cleaning the walls and
+                            floor
+                            of the pool with acid</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--Stripe-->
+    <section class="stripe py-5">
+        <div class="container py-5">
+            <h1 class="Title">Paid with STRIPE! <i class="fab fa-cc-stripe"></i></h1>
+            <div class="row">
+                <div class="col-lg-6 pt-5">
+                    <p>We have integrated a payment service under the famous STRIPE platform, now we accepts online
+                        payments
+                        with credit and debit cards.</p>
+                    <ol>
+                        <li class="my-2">
+                            <p>Click on Enter Amount Button</p>
+                        </li>
+                        <li class="my-2">
+                            <p>Please, enter the amount mentioned in the technical visit, and push the "Lock" Button</p>
+
+                        <li class="my-2">
+                            <p>If the amount is correct, click on "pay with stripe"</p>
+                        </li>
+                        <li class="my-2">
+                            <p>Continue following the instructions on stripe page.</p>
+                        </li>
+                    </ol>
+                    </p>
+                </div>
+                <div class="col-lg-6 justify-center pt-5 mt-5">
+                    <input class="c-checkbox" type="checkbox" id="checkbox">
+                    <div class="c-formContainer">
+                        <form class="c-form">
+                            <input class="c-form__input" placeholder="10,00" type="text" name="price" id="price">
+                            <label class="c-form__buttonLabel" for="checkbox">
+                                <button class="c-form__button" type="button" id="lock">Lock</button>
+                            </label>
+                            <label class="c-form__toggle" for="checkbox" data-title="Enter amount
+                                    "></label>
+                        </form>
+                    </div>
+
+                    <div id='addstatus'></div>
+                    <button type="button" id="checkout-button" class="DisableBtn" disabled="true">Pay with
+                        Stripe</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Map-->
+    <section>
+        <div class="container-flex">
+            <div class="text-center">
+
+                <div class="map">
+                    <!--The div element for the map -->
+                    <div id="map">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <section class=" banner">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </section>
+   
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 footer-about  ">
+                        <h3 class="pt-5">Attributions</h3>
+                        <ul>
+                            <p>Thanks to <a href="www.Freepik.com">www.Freepik.com</a></p>
+                            <li><a href='https://www.freepik.com/photos/travel'>Travel photo created by
+                                    lifeforstock</a></li>
+                            <li><a href='https://www.freepik.com/photos/kids'>Kids photo created by
+                                    cookie_studio</a></li>
+                            <li><a href='https://www.freepik.com/photos/background'>Background photo created by mindandi
+                                    -
+                                    www.freepik.com</a></li>
+                            <li><a href='https://www.freepik.com/vectors/abstract'>Abstract vector created by
+                                    vectorjuice - www.freepik.com</a></li>
+                            <li><a href='https://www.freepik.com/photos/water'>Water photo created by
+                                    aleksandarlittlewolf - www.freepik.com</a></li>
+
+                        </ul>
+
+                    </div>
+                    <div class="col-md-4 col-lg-4 offset-lg-1 footer-contact">
+                        <h3 class="pt-5">Contact</h3>
+                        <p><i class="fas fa-map-marker-alt"></i>240 lakeview dr
+                            Apt 101 weston florida 33326</p>
+                        <p><i class="fas fa-phone"></i> Phone:(954) 716-5336</p>
+                        <p><i class="fas fa-envelope"></i> Email: <a
+                                href="mailto:poolsvenezia@yahoo.com">poolsvenezia@yahoo.com</a>
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-lg-3 footer-social">
+                        <h3 class="pt-5">Follow us</h3>
+                        <p>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 footer-copyright">
+                        <p>© Venezia Pools 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/584243457515/?text=Hello,%20I%20am%20interested%20in%20booking%20a%20technical%20visit%20for%20my%20pool."
+        class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+
+</body>
+
+<script src="./script/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+    var stripe = Stripe("pk_test_51IAaoxGgsOqNsdKagbFEXKu1WoBwzwICAcvycWAQhF68ri5GGhuUKha6PFT1zf4bgLw4bXTPrqcn7HnNo1WU7XSx00mF12pLcl");
+    var checkoutButton = document.getElementById("checkout-button");
+
+
+    checkoutButton.addEventListener("click", function () {
+
+        fetch("http://localhost:8080/create-checkout-session", {
+            method: "POST",
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (session) {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(function (result) {
+                // If redirectToCheckout fails due to a browser or network
+                // error, you should display the localized error message to your
+                // customer using error.message.
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(function (error) {
+                console.error("Error:", error);
+            });
+
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="./script/getDAta.js"></script>
+
+
+</html>
