@@ -5,7 +5,7 @@ function getPrice() {
 
     axios({
         method: 'post',
-        url: 'http://localhost:8080/price',
+        url: 'http://127.0.0.1:3600/price',
         data: {
             Price: document.getElementById('price').value
         }

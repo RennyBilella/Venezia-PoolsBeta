@@ -1,46 +1,49 @@
+const stripe = require('stripe')('sk_test_51IAaoxGgsOqNsdKabLNV8qR2OiOwOYBnMrF0nYdRqo7Q0quS6TKAf0Uf12imjZt6gzf9W1z2WD76mjyXiTJSlhTP00OGRtRbZ3');
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
-window.addEventListener("DOMContentLoaded", function () {
+var price;
+const port = 3600;
+const hostname = '127.0.0.1' 
 
-    // get the form elements defined in your form HTML above
-    var form = document.getElementById("my-form");
-    //var button = document.getElementById("my-form-button");
-    var status = document.getElementById("status");
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.static('.'));
+app.use(cors());
 
-    // Success and Error functions for after the form is submitted
+const YOUR_DOMAIN = 'http://www.venezia-pools';
 
-    function success() {
-        form.reset();
-        status.classList.add("success");
-        status.innerHTML = "Success. We will be answering you soon.! Thanks!.";
-    }
-    
-    function error() {
-        status.classList.add("error");
-        status.innerHTML = "Oops! There was a problem.";
-    }
+app.post('/price', function (req, res) {
+  let priceObject= (req.body);
+  price= priceObject.Price;
+  price=price.replace(/\,/g,'');
+  console.log(price);
+  res.send();
+})
 
-    // handle the form submission event
+app.post('/create-checkout-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'Personal services',
+            images: ['http://127.0.0.1:5501/img/Bills.jpg'],
+          },
+          unit_amount: price,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${YOUR_DOMAIN}/success.html`,
+    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+  });
 
-    form.addEventListener("submit", function (ev) {
-        ev.preventDefault();
-        var data = new FormData(form);
-        ajax(form.method, form.action, data, success, error);
-    });
+  res.json({ id: session.id });
 });
 
-// helper function for sending an AJAX request
-
-function ajax(method, url, data, success, error) {
-    var xhr = new XMLHttpRequest();
-    xhr.open(method, url);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState !== XMLHttpRequest.DONE) return;
-        if (xhr.status === 200) {
-            success(xhr.response, xhr.responseType);
-        } else {
-            error(xhr.status, xhr.response, xhr.responseType);
-        }
-    };
-    xhr.send(data);
-};
+app.listen(port, hostname, () => console.log('Runnin on '+hostname + ' port ' + port));
